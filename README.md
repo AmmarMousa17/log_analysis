@@ -6,7 +6,7 @@ This project to retrieve some statistics from database
 <br>
 it's  the  third project in Fullstack web developer Nanodegree
 <br>
-##steps to work in this project 
+<h2> steps to work in this project <h2> 
 * intall virtualbox
 * configure it with vagrant
 *Download database
