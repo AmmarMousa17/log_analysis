@@ -13,9 +13,9 @@ it's  the  third project in Fullstack web developer Nanodegree
 <li>Download database</li>
 <li>run the command
 </ul>
-```
+<pre><code>
    psql -d news -f newsdata.sql
-```
+</code></pre>
 <h2> Views </h2>
 <h3> 1- To calaulate error logins </h3>
 <pre><code>
