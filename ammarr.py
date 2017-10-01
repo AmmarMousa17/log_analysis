@@ -1,3 +1,5 @@
+
+#!/usr/bin/env python
 import psycopg2
 
 DBNAME = "news"
@@ -17,16 +19,16 @@ def query_results(query):
 
 # query to answer first question
 query1 = (
-    "select  count(*) as count ,articles.title "
+    "select articles.title ,count(*) as count  "
     "from articles inner join log on log.path "
-    "like concat('/article/', articles.slug) group by "
+    "= concat('/article/', articles.slug) group by "
     "articles.title, log.path order by count desc limit 3")
 
 # query to answer second question
 query2 = (
-    "select count(*) as count ,authors.name from articles inner "
+    "select authors.name ,count(*) as count  from articles inner "
     "join authors on articles.author = authors.id inner join log "
-    "on log.path like concat('/article/', articles.slug)"
+    "on log.path = concat('/article/', articles.slug)"
     " group by authors.name order by count desc")
 
 # query to answer third question
@@ -54,7 +56,7 @@ query_3 = {
 
 
 def print_views(query_result):
-    print (query_result['question'])
+    print(query_result['question'])
     for result in query_result['results']:
         print(str(result[0]) + ' .... ' + str(result[1]) + ' views \n')
 
@@ -63,7 +65,7 @@ def print_views(query_result):
 
 
 def print_errors(query_result):
-    print (query_result['question'])
+    print(query_result['question'])
     for result in query_result['results']:
         print(str(result[0]) + ' .... ' + str(result[1]) + ' % errors')
 
