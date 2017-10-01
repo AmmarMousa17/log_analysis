@@ -32,8 +32,10 @@ log where status='404 NOT FOUND' group by date order by errors DESC
 </code></pre>
 
 <h3> 2- To claculate all logins for every day </h3>
-<pre><code>
+<pre>
+<code>
  create view total as select count(*) as total,date(TIME) as date from lo
 g group by date order by total desc
-</code></pre>
+</code>
+</pre>
 
